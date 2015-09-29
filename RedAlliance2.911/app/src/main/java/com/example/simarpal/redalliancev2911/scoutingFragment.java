@@ -1,7 +1,7 @@
 package com.example.simarpal.redalliancev2911;
-
 import android.app.Activity;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -35,6 +35,11 @@ import java.io.Writer;
  * to handle interaction events.
  * Use the {@link scoutingFragment#newInstance} factory method to
  * create an instance of this fragment.
+ *
+ */
+
+/**
+ * @author Simar Pal Kalsi
  */
 public class scoutingFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -148,6 +153,12 @@ public class scoutingFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);}
 
     }
+
+    /**
+     *
+     * @param view
+     * @param savedInstanceState
+     */
     public void onViewCreated(View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
         // initialise your views
@@ -266,6 +277,7 @@ public class scoutingFragment extends Fragment {
        }
 
     @Override
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
@@ -278,6 +290,11 @@ public class scoutingFragment extends Fragment {
 
 
     // TODO: Rename method, update argument and hook method into UI event
+
+    /**
+     *
+     * @param uri
+     */
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -286,6 +303,7 @@ public class scoutingFragment extends Fragment {
 
 
     @Override
+
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
@@ -318,6 +336,35 @@ public class scoutingFragment extends Fragment {
 
 
     }
+    private void writeDataBase(){
+
+        String formatedTeamNumber = teamNumberDouble.toString();
+        String formatedMatchNumber = matchNumberDouble.toString();
+        if(formatedTeamNumber.length() == 1){
+            formatedTeamNumber = "000"+formatedMatchNumber;
+        }
+        else if(formatedTeamNumber.length() == 2){
+            formatedTeamNumber = "00"+formatedTeamNumber;
+        }
+        else if (formatedTeamNumber.length() == 3){
+            formatedTeamNumber = "0"+formatedTeamNumber;
+        }
+        if(formatedMatchNumber.length() == 1){
+            formatedMatchNumber = "00"+formatedMatchNumber;
+        }
+        else if(formatedMatchNumber.length() == 2){
+            formatedMatchNumber = "0"+formatedMatchNumber;
+        }
+      
+        
+    String tableName = formatedTeamNumber+"_"+formatedMatchNumber;
+
+    }
+
+    /**
+     *
+     * @throws IOException
+     */
     private void writerToFileScouting() throws IOException {
 
 
@@ -412,6 +459,11 @@ public class scoutingFragment extends Fragment {
         //Constants
         scoutNameString = "";//Stores the value of the user input of the scout number
     }
+
+    /**
+     *
+     * @param message
+     */
     public void MessageBox(String message) {
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
