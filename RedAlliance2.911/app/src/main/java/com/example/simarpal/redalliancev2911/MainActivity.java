@@ -1,6 +1,7 @@
 package com.example.simarpal.redalliancev2911;
 
 import android.app.Activity;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -19,7 +20,8 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks , scoutingFragment.OnFragmentInteractionListener , pitScouting.OnFragmentInteractionListener
+        {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -53,7 +55,20 @@ public class MainActivity extends ActionBarActivity
         fragmentManager.beginTransaction()
                 .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
                 .commit();
+        if(position == 1)
+        {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, scoutingFragment.newInstance("1","2") )
+                    .commit();
+        }
+        if(position == 2)
+        {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, pitScouting.newInstance("3","4"))
+                    .commit();
+        }
     }
+
 
     public void onSectionAttached(int number) {
         switch (number) {
@@ -66,6 +81,8 @@ public class MainActivity extends ActionBarActivity
             case 3:
                 mTitle = getString(R.string.title_section3);
                 break;
+            case 4:
+                mTitle=getString(R.string.title_section4);
         }
     }
 
@@ -103,6 +120,11 @@ public class MainActivity extends ActionBarActivity
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 
     /**

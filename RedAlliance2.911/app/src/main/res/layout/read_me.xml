@@ -1,0 +1,53 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity$PlaceholderFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="600dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Change Log \n Created settings and home options in the navigation bar \ n the home is for the previous view functions nad the setting is for settings  \n \n \n Make sure \n make sure you have the Red Alliance folders and its subfolders created or else this will not work \n  \n \n Future changes \n Get Drawing in scouting to work, SQLite working, more imersive Views, not hardcoding all strings lol \n better logo would be nice"
+        android:id="@+id/textView36"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Red Alliance V2.8.5"
+        android:id="@+id/textView34"
+        android:layout_gravity="left|top"
+        android:textSize="38dp"
+        android:textColor="#ffff0204"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:layout_below="@+id/textView34"
+        android:layout_alignParentStart="true"
+        android:background="@mipmap/ic_launcher" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView3"
+        android:background="@mipmap/ic_launcher"
+        android:layout_above="@+id/textView36"
+        android:layout_alignEnd="@+id/textView36" />
+
+</RelativeLayout>
+</ScrollView>
